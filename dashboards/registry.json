@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "folderName": "TestFolder1",
+            "dashboards": [
+                {
+                    "dashboardContentLink": "https://raw.githubusercontent.com/weng5e/azure-money-monitor/main/dashboards/dashboard1.json"
+                }
+            ]
+        }
+    ]
+}
