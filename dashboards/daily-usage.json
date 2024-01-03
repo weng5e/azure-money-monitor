@@ -18,14 +18,14 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "id": 239,
+    "id": 29,
     "links": [],
     "liveNow": false,
     "panels": [
       {
         "datasource": {
           "type": "grafana-azure-data-explorer-datasource",
-          "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+          "uid": "azmoney"
         },
         "fieldConfig": {
           "defaults": {
@@ -33,6 +33,7 @@
               "mode": "palette-classic"
             },
             "custom": {
+              "axisBorderShow": false,
               "axisCenteredZero": false,
               "axisColorMode": "text",
               "axisLabel": "",
@@ -46,6 +47,7 @@
                 "tooltip": false,
                 "viz": false
               },
+              "insertNulls": false,
               "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
@@ -106,7 +108,7 @@
             "database": "bill",
             "datasource": {
               "type": "grafana-azure-data-explorer-datasource",
-              "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+              "uid": "azmoney"
             },
             "expression": {
               "from": {
@@ -135,7 +137,7 @@
             "queryType": "KQL",
             "rawMode": true,
             "refId": "A",
-            "resultFormat": "time_series"
+            "resultFormat": "table"
           }
         ],
         "title": "Total daily usage",
@@ -144,7 +146,7 @@
       {
         "datasource": {
           "type": "grafana-azure-data-explorer-datasource",
-          "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+          "uid": "azmoney"
         },
         "fieldConfig": {
           "defaults": {
@@ -152,6 +154,7 @@
               "mode": "palette-classic"
             },
             "custom": {
+              "axisBorderShow": false,
               "axisCenteredZero": false,
               "axisColorMode": "text",
               "axisLabel": "",
@@ -165,6 +168,7 @@
                 "tooltip": false,
                 "viz": false
               },
+              "insertNulls": false,
               "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
@@ -225,33 +229,9 @@
             "database": "bill",
             "datasource": {
               "type": "grafana-azure-data-explorer-datasource",
-              "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+              "uid": "azmoney"
             },
-            "expression": {
-              "from": {
-                "property": {
-                  "name": "week",
-                  "type": "string"
-                },
-                "type": "property"
-              },
-              "groupBy": {
-                "expressions": [],
-                "type": "and"
-              },
-              "reduce": {
-                "expressions": [],
-                "type": "and"
-              },
-              "where": {
-                "expressions": [],
-                "type": "and"
-              }
-            },
-            "pluginVersion": "4.7.0",
-            "query": "week\n| where $__timeFilter(UsageDateTime)\n| summarize DailyUsage=sum(PreTaxCost) by UsageDateTime, ResourceLocation",
-            "querySource": "raw",
-            "queryType": "KQL",
+            "query": "week\r\n| where $__timeFilter(UsageDateTime)\r\n| summarize DailyUsage=sum(PreTaxCost) by UsageDateTime, ResourceLocation",
             "rawMode": true,
             "refId": "A",
             "resultFormat": "table"
@@ -273,7 +253,7 @@
       {
         "datasource": {
           "type": "grafana-azure-data-explorer-datasource",
-          "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+          "uid": "azmoney"
         },
         "fieldConfig": {
           "defaults": {
@@ -281,6 +261,7 @@
               "mode": "palette-classic"
             },
             "custom": {
+              "axisBorderShow": false,
               "axisCenteredZero": false,
               "axisColorMode": "text",
               "axisLabel": "",
@@ -294,6 +275,7 @@
                 "tooltip": false,
                 "viz": false
               },
+              "insertNulls": false,
               "lineInterpolation": "smooth",
               "lineWidth": 1,
               "pointSize": 5,
@@ -356,33 +338,9 @@
             "database": "bill",
             "datasource": {
               "type": "grafana-azure-data-explorer-datasource",
-              "uid": "fd05eba7-8ad2-4b5b-984e-0d6273323f9b"
+              "uid": "azmoney"
             },
-            "expression": {
-              "from": {
-                "property": {
-                  "name": "week",
-                  "type": "string"
-                },
-                "type": "property"
-              },
-              "groupBy": {
-                "expressions": [],
-                "type": "and"
-              },
-              "reduce": {
-                "expressions": [],
-                "type": "and"
-              },
-              "where": {
-                "expressions": [],
-                "type": "and"
-              }
-            },
-            "pluginVersion": "4.7.0",
-            "query": "week\n| where $__timeFilter(UsageDateTime)\n| summarize DailyUsage=sum(PreTaxCost) by UsageDateTime, ResourceType",
-            "querySource": "raw",
-            "queryType": "KQL",
+            "query": "week\r\n| where $__timeFilter(UsageDateTime)\r\n| summarize DailyUsage=sum(PreTaxCost) by UsageDateTime, ResourceType",
             "rawMode": true,
             "refId": "A",
             "resultFormat": "table"
@@ -404,8 +362,10 @@
     ],
     "refresh": "",
     "schemaVersion": 38,
-    "style": "dark",
-    "tags": [],
+    "tags": [
+      "azure-money-monitor",
+      "azure-cost-insights"
+    ],
     "templating": {
       "list": []
     },
@@ -427,6 +387,6 @@
     "timezone": "utc",
     "title": "Daily usage",
     "uid": "c153c12d-7a50-424a-8758-c1a943a31f43",
-    "version": 14,
+    "version": 3,
     "weekStart": ""
   }
