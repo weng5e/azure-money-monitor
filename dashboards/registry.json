@@ -1,10 +1,12 @@
 {
     "folders": [
         {
-            "folderName": "TestFolder1",
+            "folderName": "Azure Money Monitor",
+            "folderUID": "az-money",
             "dashboards": [
                 {
-                    "dashboardContentLink": "https://raw.githubusercontent.com/weng5e/azure-money-monitor/main/dashboards/dashboard1.json"
+                    "dashboardName": "Daily usage insights",
+                    "dashboardContentLink": "https://raw.githubusercontent.com/weng5e/azure-money-monitor/main/dashboards/daily-usage.json"
                 }
             ]
         }
